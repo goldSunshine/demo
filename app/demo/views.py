@@ -19,8 +19,18 @@ class Demo(MethodView):
         DemoTable.create(**body)
         return jsonify({"res": "hello world"})
 
-    def put(self):
-        pass
 
-    def delete(self):
-        pass
+class DemoDetail(MethodView):
+    @swag_from('./apidocs/put.yml')
+    def put(self, demo_id):
+        print(demo_id)
+        body = request.json
+        if not body:
+            return "no update"
+        DemoTable.update_by_id(demo_id)
+        return "success"
+
+    @swag_from('./apidocs/delete.yml')
+    def delete(self, demo_id):
+        DemoTable.delete_by_id(demo_id)
+        return jsonify({"msg": "success"})

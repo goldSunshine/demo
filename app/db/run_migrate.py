@@ -8,7 +8,7 @@ migrate_tables = [demo_models]
 
 db.connect()
 router = Router(db, ignore='basemodel')
-router.create(auto=migrate_tables)
+# router.create(auto=migrate_tables)
 router.run()
 db.close()
 

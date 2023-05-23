@@ -1,0 +1,35 @@
+更新demo表中记录
+---
+tags:
+  - demo
+parameters:
+  - name: demo_id
+    in: path
+    desc: demo 的序号
+    example: 101
+  - name: body
+    in: body
+    schema:
+      type: object
+      properties:
+        name:
+          type: string
+        age:
+          type: integer
+        user_id:
+          type: integer
+        desc:
+          type: string
+        sex:
+          type: integer
+responses:
+  200:
+    description: OK
+    schema:
+      type: object
+      properties:
+        res:
+          type: string
+          description: 执行状态
+  404:
+    description: not found

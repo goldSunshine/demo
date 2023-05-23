@@ -30,5 +30,15 @@ class DemoTable(BaseModel):
         demos = [model_to_dict(i) for i in res]
         return total, demos
 
+    @classmethod
+    def delete_by_id(cls, demo_id):
+        res = cls.get(cls.id==demo_id)
+        res.delete_instance()
+
+    @classmethod
+    def update_by_id(cls, demo_id, args):
+        res = cls.get(cls.id == demo_id)
+        res.update(**args)
+
 
 
