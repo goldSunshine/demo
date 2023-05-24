@@ -32,13 +32,16 @@ class DemoTable(BaseModel):
 
     @classmethod
     def delete_by_id(cls, demo_id):
+        # 检查是否存在该demo_id，如果不存在则抛出异常404
         res = cls.get(cls.id==demo_id)
         res.delete_instance()
 
     @classmethod
     def update_by_id(cls, demo_id, args):
+        # 检查是否存在该demo_id，如果不存在则抛出异常404
         res = cls.get(cls.id == demo_id)
-        res.update(**args)
+        q = res.update(**args)
+        q.execute()
 
 
 

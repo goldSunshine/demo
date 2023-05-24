@@ -26,8 +26,8 @@ class DemoDetail(MethodView):
         print(demo_id)
         body = request.json
         if not body:
-            return "no update"
-        DemoTable.update_by_id(demo_id)
+            return "no value update", 400
+        DemoTable.update_by_id(demo_id, body)
         return "success"
 
     @swag_from('./apidocs/delete.yml')

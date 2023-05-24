@@ -7,7 +7,7 @@ bp = Blueprint("demo", __name__)
 
 @bp.errorhandler(DoesNotExist)
 def handle_not_exist(error):
-    return "not found"
+    return "no record", 404
 
 
 bp.add_url_rule("/demo/<int:demo_id>", view_func=views.DemoDetail.as_view("demo_detail"), methods=["PUT", "DELETE"])

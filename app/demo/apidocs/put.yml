@@ -31,5 +31,7 @@ responses:
         res:
           type: string
           description: 执行状态
+  400:
+    description: no value update
   404:
-    description: not found
+    description: no record
