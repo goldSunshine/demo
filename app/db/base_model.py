@@ -1,10 +1,9 @@
-import datetime 
+import datetime
 from peewee import Model, MySQLDatabase
 from peewee import AutoField, DateTimeField
 
-db = MySQLDatabase(
-    "test", host="10.30.20.244", port=3306, user="root", passwd="123456"
-)
+db = MySQLDatabase("test", host="127.0.0.1", port=3306, user="root", passwd="123456")
+
 
 class BaseModel(Model):
     id = AutoField()
@@ -13,4 +12,3 @@ class BaseModel(Model):
 
     class Meta:
         database = db
-
