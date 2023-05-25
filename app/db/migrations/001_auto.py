@@ -22,12 +22,13 @@ Some examples (model - class or model name)::
 
 """
 
+from decimal import ROUND_HALF_EVEN  # noqa
+
 import peewee as pw
 from peewee_migrate import Migrator
-from decimal import ROUND_HALF_EVEN
 
 try:
-    import playhouse.postgres_ext as pw_pext
+    import playhouse.postgres_ext as pw_pext  # noqa
 except ImportError:
     pass
 
@@ -36,13 +37,13 @@ SQL = pw.SQL
 
 def migrate(migrator: Migrator, database: pw.Database, *, fake=False):
     """Write your migrations here."""
-    
+
     @migrator.create_model
     class DemoTable(pw.Model):
         id = pw.AutoField()
         create_at = pw.DateTimeField()
         update_at = pw.DateTimeField()
-        name = pw.CharField(constraints=[SQL("DEFAULT ''")], default='', max_length=128)
+        name = pw.CharField(constraints=[SQL("DEFAULT ''")], default="", max_length=128)
         age = pw.IntegerField(index=True)
         user_id = pw.BigIntegerField()
         desc = pw.TextField()
@@ -55,5 +56,5 @@ def migrate(migrator: Migrator, database: pw.Database, *, fake=False):
 
 def rollback(migrator: Migrator, database: pw.Database, *, fake=False):
     """Write your rollback migrations here."""
-    
-    migrator.remove_model('demo_table')
+
+    migrator.remove_model("demo_table")

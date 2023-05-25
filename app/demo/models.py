@@ -1,11 +1,12 @@
-import peewee as pw
-from app.db.base_model import BaseModel
-from playhouse.shortcuts import model_to_dict
 from enum import IntEnum, unique
+
+import peewee as pw
+from playhouse.shortcuts import model_to_dict
+
+from app.db.base_model import BaseModel
 
 
 class DemoTable(BaseModel):
-
     @unique
     class Status(IntEnum):
         RUNNING = 0
@@ -20,7 +21,7 @@ class DemoTable(BaseModel):
     sex = pw.BooleanField(default=0)
 
     class Meta:
-        table_name = 'demo_table'
+        table_name = "demo_table"
 
     @classmethod
     def get_with_page(cls, limit, offset):
@@ -33,7 +34,7 @@ class DemoTable(BaseModel):
     @classmethod
     def delete_by_id(cls, demo_id):
         # 检查是否存在该demo_id，如果不存在则抛出异常404
-        res = cls.get(cls.id==demo_id)
+        res = cls.get(cls.id == demo_id)
         res.delete_instance()
 
     @classmethod
@@ -42,6 +43,3 @@ class DemoTable(BaseModel):
         res = cls.get(cls.id == demo_id)
         q = res.update(**args)
         q.execute()
-
-
-
