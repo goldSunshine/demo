@@ -1,5 +1,5 @@
 from flasgger import swag_from
-from flask import jsonify, request
+from flask import request
 from flask.views import MethodView
 
 from app.demo.models import DemoTable
@@ -12,13 +12,13 @@ class Demo(MethodView):
         limit = int(query.get("limit", 10))
         offset = int(query.get("offset", 0))
         total, demos = DemoTable.get_with_page(limit, offset)
-        return jsonify({"total": total, "result": demos})
+        return {"total": total, "result": demos}
 
     @swag_from("./apidocs/post.yml")
     def post(self):
         body = request.json
-        DemoTable.create(**body)
-        return jsonify({"res": "hello world"})
+        res = DemoTable.create(**body)
+        return res
 
 
 class DemoDetail(MethodView):
@@ -34,4 +34,4 @@ class DemoDetail(MethodView):
     @swag_from("./apidocs/delete.yml")
     def delete(self, demo_id):
         DemoTable.delete_by_id(demo_id)
-        return jsonify({"msg": "success"})
+        return "", 200
