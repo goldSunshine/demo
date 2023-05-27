@@ -1,7 +1,6 @@
 from enum import IntEnum, unique
 
 import peewee as pw
-from playhouse.shortcuts import model_to_dict
 
 from app.db.base_model import BaseModel
 
@@ -20,6 +19,9 @@ class DemoTable(BaseModel):
     status = pw.SmallIntegerField(default=Status.RUNNING.value)
     sex = pw.BooleanField(default=0)
 
+    # 数据库对象转字典时需要移除的字段
+    __exclude__ = ["desc", "sex"]
+
     class Meta:
         table_name = "demo_table"
 
@@ -28,7 +30,7 @@ class DemoTable(BaseModel):
         query = cls.select()
         total = query.count()
         res = query.order_by(cls.id).offset(offset).limit(limit)
-        demos = [model_to_dict(i) for i in res]
+        demos = [i.to_dict() for i in res]
         return total, demos
 
     @classmethod

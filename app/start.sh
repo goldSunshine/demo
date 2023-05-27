@@ -1,3 +1,2 @@
-export PYTHONPATH=/home/ljk/Documents/code/demo
-
+export PYTHONPATH=$(dirname $(pwd))
 python main.py

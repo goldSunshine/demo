@@ -26,6 +26,27 @@ responses:
     schema:
       type: object
       properties:
-        res:
+        id:
+          type: integer
+          desc: 序号
+        name:
           type: string
-          description: 执行状态
+          desc: 名称
+        age:
+          type: integer
+          desc: 年级
+        user_id:
+          type: integer
+          desc: 用户id
+        sex:
+          type: integer
+          desc: 性别  0:女 1:男
+        status:
+          type: integer
+          desc: 状态 0:运行中 1:结束 2:失败
+        update_at:
+          type: string
+          desc: 更新时间
+        create_at:
+          type: string
+          desc: 创建时间
