@@ -1,0 +1,17 @@
+2023-05-29 12:46:34,893 - INFO - main.py - log_request - 18 - GET /demos 127.0.0.1
+2023-05-29 12:46:35,648 - INFO - main.py - log_request - 18 - GET /demos 127.0.0.1
+2023-05-29 12:46:36,116 - INFO - main.py - log_request - 18 - GET /demos 127.0.0.1
+2023-05-29 12:46:36,423 - INFO - main.py - log_request - 18 - GET /demos 127.0.0.1
+2023-05-29 12:46:36,614 - INFO - main.py - log_request - 18 - GET /demos 127.0.0.1
+2023-05-29 12:46:36,790 - INFO - main.py - log_request - 18 - GET /demos 127.0.0.1
+2023-05-29 12:46:36,959 - INFO - main.py - log_request - 18 - GET /demos 127.0.0.1
+2023-05-29 12:46:37,103 - INFO - main.py - log_request - 18 - GET /demos 127.0.0.1
+2023-05-29 12:46:37,290 - INFO - main.py - log_request - 18 - GET /demos 127.0.0.1
+2023-05-29 13:35:20,648 - INFO - main.py - log_request - 18 - GET /apidocs 127.0.0.1
+2023-05-29 13:35:20,682 - INFO - main.py - log_request - 18 - GET /flasgger_static/swagger-ui.css 127.0.0.1
+2023-05-29 13:35:20,685 - INFO - main.py - log_request - 18 - GET /flasgger_static/swagger-ui-bundle.js 127.0.0.1
+2023-05-29 13:35:20,686 - INFO - main.py - log_request - 18 - GET /flasgger_static/swagger-ui-standalone-preset.js 127.0.0.1
+2023-05-29 13:35:20,687 - INFO - main.py - log_request - 18 - GET /flasgger_static/lib/jquery.min.js 127.0.0.1
+2023-05-29 13:35:20,869 - INFO - main.py - log_request - 18 - GET /apispec_1.json 127.0.0.1
+2023-05-29 13:35:20,885 - INFO - main.py - log_request - 18 - GET /flasgger_static/favicon-32x32.png 127.0.0.1
+2023-05-29 13:39:46,040 - INFO - main.py - log_request - GET /demos 127.0.0.1

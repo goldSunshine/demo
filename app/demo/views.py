@@ -1,5 +1,5 @@
 from flasgger import swag_from
-from flask import request
+from flask import request, current_app
 from flask.views import MethodView
 
 from app.demo.models import DemoTable
@@ -25,16 +25,6 @@ class Demo(MethodView):
         demo = DemoTable.get_by_demo_id(demo_id)
         return json_response(data=demo.to_dict())
 
-    @swag_from("./apidocs/post.yml")
-    def post(self):
-        """保存demo数据"""
-        body = request.json
-        res = DemoTable.create(**body)
-
-        # 返回json格式的数据，数据必须可以json序列化
-        # to_dict 方法可以将对象转成字典
-        return json_response(data=res.to_dict())
-
     @swag_from("./apidocs/put.yml")
     def put(self, demo_id):
         """更新demo"""
@@ -49,5 +39,19 @@ class Demo(MethodView):
         """删除demo"""
         DemoTable.delete_by_id(demo_id)
 
+        current_app.logger.info(f"删除{demo_id}完成")
+
         # 接口返回值可以只有状态码，200表示操作成功 404表示找不到对象 400表示错误
         return json_response(code=200)
+
+
+class DemoCreate(MethodView):
+    @swag_from("./apidocs/post.yml")
+    def post(self):
+        """保存demo数据"""
+        body = request.json
+        res = DemoTable.create(**body)
+
+        # 返回json格式的数据，数据必须可以json序列化
+        # to_dict 方法可以将对象转成字典
+        return json_response(data=res.to_dict())

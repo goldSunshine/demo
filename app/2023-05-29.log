@@ -1,0 +1,8 @@
+2023-05-29 12:36:47,722 - ERROR - views.py - delete - 42 - 删除4完成
+2023-05-29 12:39:32,008 - INFO - main.py - log_each_request - 18 - 【请求方法】DELETE【请求路径】/demo/5【请求地址】127.0.0.1
+2023-05-29 12:39:32,026 - INFO - views.py - delete - 42 - 删除5完成
+2023-05-29 12:41:11,379 - INFO - main.py - log_each_request - 18 - 请求方法 POST 请求路径 /demo 请求地址 127.0.0.1
+2023-05-29 12:41:37,684 - INFO - main.py - log_each_request - 18 - POST /demo 127.0.0.1
+2023-05-29 12:42:07,164 - INFO - main.py - log_each_request - 18 - /demo 127.0.0.1
+2023-05-29 12:42:46,059 - INFO - main.py - log_each_request - 18 - DELETE /demo/6 127.0.0.1
+2023-05-29 12:42:46,389 - INFO - views.py - delete - 42 - 删除6完成
