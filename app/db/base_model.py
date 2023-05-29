@@ -3,7 +3,11 @@ import datetime
 from peewee import AutoField, DateTimeField, Model, MySQLDatabase
 from playhouse.shortcuts import model_to_dict
 
-db = MySQLDatabase("test", host="10.30.20.244", port=3306, user="root", passwd="123456")
+from config import db_host, db_name, db_passwd, db_port, db_user
+
+db = MySQLDatabase(
+    database=db_name, host=db_host, port=db_port, user=db_user, passwd=db_passwd
+)
 
 
 class BaseModel(Model):
