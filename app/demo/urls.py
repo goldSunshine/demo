@@ -13,7 +13,7 @@ def handle_not_exist(error):
 
 bp.add_url_rule(
     "/demo/<int:demo_id>",
-    view_func=views.DemoDetail.as_view("demo_detail"),
-    methods=["PUT", "DELETE"],
+    view_func=views.Demo.as_view("demo"),
+    methods=["GET", "POST", "PUT", "DELETE"],
 )
-bp.add_url_rule("/demo", view_func=views.Demo.as_view("demo"), methods=["GET", "POST"])
+bp.add_url_rule("/demos", view_func=views.Demos.as_view("demos"), methods=["GET"])

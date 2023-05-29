@@ -1,6 +1,7 @@
 from enum import IntEnum, unique
 
 import peewee as pw
+from functools import cached_property
 
 from app.db.base_model import BaseModel
 
@@ -45,3 +46,8 @@ class DemoTable(BaseModel):
         res = cls.get(cls.id == demo_id)
         q = res.update(**args)
         q.execute()
+
+    @classmethod
+    def get_by_demo_id(cls, demo_id):
+        res = cls.get(cls.id == demo_id)
+        return res
