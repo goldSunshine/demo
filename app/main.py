@@ -2,13 +2,13 @@ from flasgger import Swagger
 from flask import Flask, request
 
 from app.demo.urls import bp as demo_bp
-from app.extensions import JSONEncoder, MyResponse, get_loghandler
+from app.extensions import JSONEncoder, JsonResponse, get_loghandler
 
 app = Flask(__name__)
 
 app.register_blueprint(demo_bp)
 app.json_encoder = JSONEncoder
-app.response_class = MyResponse
+app.response_class = JsonResponse
 app.logger.addHandler(get_loghandler())
 swagger = Swagger(app, config={"specs_route": "/apidocs"}, merge=True)
 

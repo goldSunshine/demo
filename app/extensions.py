@@ -31,7 +31,7 @@ class JSONEncoder(BaseJSONEncoder):
         return super(JSONEncoder, self).default(o)
 
 
-class MyResponse(Response):
+class JsonResponse(Response):
     @classmethod
     def force_type(cls, response, environ=None):
         if isinstance(response, (list, dict)):
